@@ -38,11 +38,6 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
       <option value="86400">1 day/s — full timeline in 19s</option>
     </select>
     <button onclick="setT(0)">⏮ Restart</button>
-    <span style="color:#888;margin-left:8px">GPS ≥</span>
-    <input type="range" min="0" max="95" value="70" step="5"
-      oninput="JAM_MIN=parseInt(this.value);document.getElementById('jm').textContent=JAM_MIN+'%';upd()"
-      style="width:90px">
-    <span id="jm" style="color:#fa0;min-width:34px">70%</span>
     <span id="tl" style="min-width:60px;font-weight:bold;color:#ff0">00:00</span>
   </div>
   <div class="row" id="cats"></div>
@@ -96,7 +91,8 @@ Object.entries(CAT).forEach(([k,v])=>{
   lab.innerHTML=`<input type="checkbox" checked onchange="${i?'SHOW_STRIKES':'SHOW_JAM'}=this.checked;upd()">${n}`;
   catsDiv.appendChild(lab);
 });
-let SHOW_JAM=true, SHOW_STRIKES=true, JAM_MIN=70;
+let SHOW_JAM=true, SHOW_STRIKES=true;
+const JAM_MIN=20;  // ниже 20% — норма/фон, не рисуем
 
 const NAT=[
  {k:'us',  n:'USA',      pre:['ae','a'],       c:'#4af'},
@@ -211,9 +207,9 @@ function upd(){
     const cells=jamFor(DAYS[cur]);
     const shown=cells.filter(d=>d.pct>=JAM_MIN);
     if(shown.length) ls.push(new deck.ScatterplotLayer({id:'jam',data:shown,
-      getPosition:d=>[d.lon,d.lat], getRadius:26000, radiusUnits:'meters',
-      radiusMinPixels:2,
-      getFillColor:d=>d.pct>=80?[255,0,0,190]:d.pct>=50?[255,110,0,170]:d.pct>=25?[255,190,0,140]:[255,235,80,95],
+      getPosition:d=>[d.lon,d.lat], getRadius:30000, radiusUnits:'meters',
+      radiusMinPixels:4, radiusMaxPixels:40,
+      getFillColor:d=>d.pct>=80?[255,0,0,235]:d.pct>=60?[255,90,0,220]:d.pct>=40?[255,170,0,200]:[255,230,60,160],
       pickable:true, stroked:false}));
   }
 
@@ -240,7 +236,7 @@ function upd(){
     ls.push(new deck.IconLayer({id:'strikes',data:vis,
       getPosition:d=>[d.lon,d.lat],
       getIcon:d=>({url:ICONS[d.type]||ICONS.base, width:48, height:48, anchorY:24}),
-      getSize:d=>d.type==='strike'?30:d.type==='retaliation'?24:18,
+      getSize:d=>d.type==='strike'?20:d.type==='retaliation'?17:13,
       sizeUnits:'pixels', pickable:true}));
     ls.push(new deck.TextLayer({id:'strike-labels',data:vis,
       getPosition:d=>[d.lon,d.lat], getText:d=>d.n.split('—')[0].trim(),
