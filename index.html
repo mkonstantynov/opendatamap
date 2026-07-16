@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Global Military Air Activity & GPS Interference — 14 Feb – 4 Mar 2026</title>
+<html><head><meta charset="UTF-8"><title>Global Military Air Activity & GPS Interference — 14 Feb – 31 Mar 2026</title>
 <style>
 html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#000;font:12px sans-serif;color:#fff}
 #map{position:absolute;top:0;left:0;width:100%;height:100%}
@@ -24,7 +24,7 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
 <div id="panel">
   <div class="row">
     <button id="pb" onclick="togglePlay()" style="background:#a33;font-size:13px;padding:5px 14px">▶ PLAY</button>
-    <input type="range" id="tl_slider" min="0" max="1641599" value="0" oninput="setT(this.value)" style="flex:1">
+    <input type="range" id="tl_slider" min="0" max="3974399" value="0" oninput="setT(this.value)" style="flex:1">
     <span id="day-label" style="min-width:250px;font-size:13px">Loading…</span>
   </div>
   <div class="row">
@@ -35,7 +35,8 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
       <option value="7200">2 hours/s — day in 12s</option>
       <option value="21600">6 hours/s — day in 4s</option>
       <option value="43200">12 hours/s — day in 2s</option>
-      <option value="86400">1 day/s — full timeline in 19s</option>
+      <option value="86400">1 day/s — full timeline in 46s</option>
+      <option value="172800">2 days/s — full timeline in 23s</option>
     </select>
     <button onclick="setT(0)">⏮ Restart</button>
     <span id="tl" style="min-width:60px;font-weight:bold;color:#ff0">00:00</span>
@@ -71,7 +72,7 @@ const CAT={
 const ON={1:true,2:true,3:true,4:true,5:false,6:false,0:false};
 const DAYS=[];
 for(let d=14;d<=28;d++)DAYS.push(`2026-02-${String(d).padStart(2,'0')}`);
-for(let d=1;d<=4;d++)DAYS.push(`2026-03-0${d}`);   // GPS data available, tracks pending
+for(let d=1;d<=31;d++)DAYS.push(`2026-03-${String(d).padStart(2,'0')}`);  // Mar 24 missing in archive
 const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
 const L=document.getElementById('log');
@@ -120,7 +121,7 @@ NAT.forEach(x=>{
 });
 
 let cur=-1, ct=0, playing=false, speed=3600, data=null, jamAll=null, strikes=null, last=0;
-let T=0; const TMAX=19*86400-1;   // unified timeline
+let T=0; const TMAX=46*86400-1;   // unified timeline
 let loading=false;
 function hhmm(s){return String(Math.floor(s/3600)).padStart(2,'0')+':'+String(Math.floor(s%3600/60)).padStart(2,'0')}
 
