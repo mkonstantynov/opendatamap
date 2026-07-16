@@ -206,11 +206,13 @@ function upd(){
   if(SHOW_JAM&&jamAll){
     const cells=jamFor(DAYS[cur]);
     const shown=cells.filter(d=>d.pct>=JAM_MIN);
-    if(shown.length) ls.push(new deck.ScatterplotLayer({id:'jam',data:shown,
-      getPosition:d=>[d.lon,d.lat], getRadius:30000, radiusUnits:'meters',
-      radiusMinPixels:4, radiusMaxPixels:40,
-      getFillColor:d=>d.pct>=80?[255,0,0,235]:d.pct>=60?[255,90,0,220]:d.pct>=40?[255,170,0,200]:[255,230,60,160],
-      pickable:true, stroked:false}));
+    const H=0.25;  // половина ячейки 0.5 градуса — плитка без зазоров
+    if(shown.length) ls.push(new deck.PolygonLayer({id:'jam',data:shown,
+      getPolygon:d=>[[d.lon-H,d.lat-H],[d.lon+H,d.lat-H],[d.lon+H,d.lat+H],[d.lon-H,d.lat+H]],
+      getFillColor:d=>d.pct>=80?[255,0,0,200]:d.pct>=60?[255,90,0,180]:d.pct>=40?[255,170,0,155]:[255,230,60,120],
+      getLineColor:d=>d.pct>=80?[255,60,60,160]:[255,180,0,90],
+      getLineWidth:1, lineWidthUnits:'pixels', stroked:true, filled:true,
+      pickable:true, extruded:false}));
   }
 
   if(data){
