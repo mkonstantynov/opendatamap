@@ -39,10 +39,10 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
     </select>
     <button onclick="setT(0)">⏮ Restart</button>
     <span style="color:#888;margin-left:8px">GPS ≥</span>
-    <input type="range" min="0" max="90" value="15" step="5"
+    <input type="range" min="0" max="95" value="70" step="5"
       oninput="JAM_MIN=parseInt(this.value);document.getElementById('jm').textContent=JAM_MIN+'%';upd()"
       style="width:90px">
-    <span id="jm" style="color:#fa0;min-width:34px">15%</span>
+    <span id="jm" style="color:#fa0;min-width:34px">70%</span>
     <span id="tl" style="min-width:60px;font-weight:bold;color:#ff0">00:00</span>
   </div>
   <div class="row" id="cats"></div>
@@ -52,7 +52,7 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
     <span>★ <span style="color:#ff9500">Iranian retaliation</span></span>
     <span>▣ <span style="color:#fff">air bases</span></span>
     <span style="margin-left:14px;color:#666">|</span>
-    <span>GPS interference:
+    <span title="Below ~50% is mostly older transponders (GA baseline), not jamming">GPS interference:
       <span style="color:#ffeb50">25%</span> ·
       <span style="color:#ffbe00">50%</span> ·
       <span style="color:#ff6e00">80%</span> ·
@@ -96,7 +96,7 @@ Object.entries(CAT).forEach(([k,v])=>{
   lab.innerHTML=`<input type="checkbox" checked onchange="${i?'SHOW_STRIKES':'SHOW_JAM'}=this.checked;upd()">${n}`;
   catsDiv.appendChild(lab);
 });
-let SHOW_JAM=true, SHOW_STRIKES=true, JAM_MIN=15;
+let SHOW_JAM=true, SHOW_STRIKES=true, JAM_MIN=70;
 
 const NAT=[
  {k:'us',  n:'USA',      pre:['ae','a'],       c:'#4af'},
