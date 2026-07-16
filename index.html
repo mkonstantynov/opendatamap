@@ -15,12 +15,24 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
 .sw{width:11px;height:11px;border-radius:2px;display:inline-block}
 #log{position:absolute;top:6px;left:6px;color:#6f6;font-size:10px;z-index:100;
   white-space:pre;background:rgba(0,0,0,.6);padding:4px 6px;border-radius:4px;max-width:45vw}
+#jamleg{position:absolute;top:8px;right:8px;z-index:120;background:rgba(255,255,255,.92);
+  color:#111;border:1px solid #999;border-radius:5px;padding:8px 10px;font-size:11px;line-height:1.7}
+#jamleg i{display:inline-block;width:13px;height:13px;margin-right:6px;vertical-align:-2px;border:1px solid #0004}
 #tip{position:absolute;z-index:200;pointer-events:none;background:rgba(0,0,0,.9);
   border:1px solid #666;padding:6px 8px;border-radius:4px;font-size:11px;display:none;line-height:1.5}
 </style></head><body>
 <div id="map"></div>
 <div id="log"></div>
 <div id="tip"></div>
+<div id="jamleg">
+  <div style="font-weight:bold;margin-bottom:5px">GPS Interference<br>
+    <span style="font-weight:normal;color:#888;font-size:10px">% aircraft FL250+ with degraded position</span></div>
+  <div><i style="background:#8b0000"></i> ≥80% — severe</div>
+  <div><i style="background:#e02020"></i> 60–80% — heavy</div>
+  <div><i style="background:#f07030"></i> 40–60% — moderate</div>
+  <div><i style="background:#f5b942"></i> 20–40% — light</div>
+  <div style="color:#888;font-size:10px;margin-top:4px">&lt;20% — background, not shown</div>
+</div>
 <div id="panel">
   <div class="row">
     <button id="pb" onclick="togglePlay()" style="background:#a33;font-size:13px;padding:5px 14px">▶ PLAY</button>
@@ -48,11 +60,11 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
     <span>★ <span style="color:#ff9500">Iranian retaliation</span></span>
     <span>▣ <span style="color:#fff">air bases</span></span>
     <span style="margin-left:14px;color:#666">|</span>
-    <span title="Below ~50% is mostly older transponders (GA baseline), not jamming">GPS interference:
-      <span style="color:#ffeb50">25%</span> ·
-      <span style="color:#ffbe00">50%</span> ·
-      <span style="color:#ff6e00">80%</span> ·
-      <span style="color:#f00">100%</span></span>
+    <span>Basemap:</span>
+    <select onchange="setBasemap(this.value)" style="font-size:11px">
+      <option value="osm" selected>OpenStreetMap</option>
+      <option value="dark">Dark</option>
+    </select>
   </div>
 </div>
 </div>
@@ -93,7 +105,13 @@ Object.entries(CAT).forEach(([k,v])=>{
   catsDiv.appendChild(lab);
 });
 let SHOW_JAM=true, SHOW_STRIKES=true;
-const JAM_MIN=20;  // ниже 20% — норма/фон, не рисуем
+const JAM_MIN=20;  // below 20% = background, not shown
+let BASEMAP='osm';   // 'osm' | 'dark'
+const TILES={
+  osm:  'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  dark: 'https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+};
+function setBasemap(v){ BASEMAP=v; document.body.style.background = v==='osm'?'#aad3df':'#000'; upd(); }
 
 const NAT=[
  {k:'us',  n:'USA',      pre:['ae','a'],       c:'#4af'},
@@ -197,8 +215,8 @@ function jamFor(day){
 }
 
 function upd(){
-  const ls=[new deck.TileLayer({id:'base',
-    data:'https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+  const ls=[new deck.TileLayer({id:'base_'+BASEMAP,
+    data:TILES[BASEMAP],
     minZoom:0,maxZoom:19,tileSize:256,
     renderSubLayers:p=>{const{west,south,east,north}=p.tile.bbox;
       return new deck.BitmapLayer(p,{data:null,image:p.data,bounds:[west,south,east,north]});}
@@ -211,7 +229,7 @@ function upd(){
     if(shown.length) ls.push(new deck.PolygonLayer({id:'jam',data:shown,
       getPolygon:d=>[[d.lon-H,d.lat-H],[d.lon+H,d.lat-H],[d.lon+H,d.lat+H],[d.lon-H,d.lat+H]],
       getFillColor:d=>d.pct>=80?[255,0,0,200]:d.pct>=60?[255,90,0,180]:d.pct>=40?[255,170,0,155]:[255,230,60,120],
-      getLineColor:d=>d.pct>=80?[255,60,60,160]:[255,180,0,90],
+      getLineColor:[80,0,0,110],
       getLineWidth:1, lineWidthUnits:'pixels', stroked:true, filled:true,
       pickable:true, extruded:false}));
   }
