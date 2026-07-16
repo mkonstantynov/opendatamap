@@ -15,8 +15,8 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
 .sw{width:11px;height:11px;border-radius:2px;display:inline-block}
 #log{position:absolute;top:6px;left:6px;color:#6f6;font-size:10px;z-index:100;
   white-space:pre;background:rgba(0,0,0,.6);padding:4px 6px;border-radius:4px;max-width:45vw}
-#jamleg{position:absolute;top:8px;right:8px;z-index:120;background:rgba(255,255,255,.92);
-  color:#111;border:1px solid #999;border-radius:5px;padding:8px 10px;font-size:11px;line-height:1.7}
+#jamleg{position:absolute;top:8px;right:8px;z-index:120;background:rgba(0,0,0,.85);
+  color:#fff;border:1px solid #555;border-radius:5px;padding:8px 10px;font-size:11px;line-height:1.7}
 #jamleg i{display:inline-block;width:13px;height:13px;margin-right:6px;vertical-align:-2px;border:1px solid #0004}
 #tip{position:absolute;z-index:200;pointer-events:none;background:rgba(0,0,0,.9);
   border:1px solid #666;padding:6px 8px;border-radius:4px;font-size:11px;display:none;line-height:1.5}
@@ -62,8 +62,8 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
     <span style="margin-left:14px;color:#666">|</span>
     <span>Basemap:</span>
     <select onchange="setBasemap(this.value)" style="font-size:11px">
-      <option value="osm" selected>OpenStreetMap</option>
-      <option value="dark">Dark</option>
+      <option value="dark" selected>Dark</option>
+      <option value="osm">OpenStreetMap</option>
     </select>
   </div>
 </div>
@@ -106,7 +106,7 @@ Object.entries(CAT).forEach(([k,v])=>{
 });
 let SHOW_JAM=true, SHOW_STRIKES=true;
 const JAM_MIN=20;  // below 20% = background, not shown
-let BASEMAP='osm';   // 'osm' | 'dark'
+let BASEMAP='dark';   // 'osm' | 'dark'
 const TILES={
   osm:  'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
   dark: 'https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
