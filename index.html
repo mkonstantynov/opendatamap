@@ -32,7 +32,13 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
   <div><i style="background:#f07030"></i> 40–60% — moderate</div>
   <div><i style="background:#f5b942"></i> 20–40% — light</div>
   <div style="color:#888;font-size:10px;margin-top:4px">&lt;20% — background, not shown</div>
-</div>
+  <div style="margin-top:8px;padding-top:8px;border-top:1px solid #444">
+    <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#fff;
+      border:2px solid #c00;vertical-align:-1px;margin-right:5px"></span>Jammer source
+    <div style="color:#888;font-size:10px;margin-top:3px">Liwa, UAE &middot; &plusmn;23 km<br>
+    radius varies by day &middot; 1–31 Mar<br>
+    capped at radio horizon 426 km</div>
+  </div>
 <div id="panel">
   <div class="row">
     <button id="pb" onclick="togglePlay()" style="background:#a33;font-size:13px;padding:5px 14px">▶ PLAY</button>
@@ -98,13 +104,16 @@ Object.entries(CAT).forEach(([k,v])=>{
     <span class="sw" style="background:rgb(${v.c.join(',')})"></span>${v.n}`;
   catsDiv.appendChild(lab);
 });
-['GPS interference','Strikes & bases'].forEach((n,i)=>{
+['GPS interference','Strikes & bases','Jammer source'].forEach((n,i)=>{
   const lab=document.createElement('label');
   lab.style.marginLeft='12px';
-  lab.innerHTML=`<input type="checkbox" checked onchange="${i?'SHOW_STRIKES':'SHOW_JAM'}=this.checked;upd()">${n}`;
+  const v=['SHOW_JAM','SHOW_STRIKES','SHOW_SRC'][i];
+  lab.innerHTML=`<input type="checkbox" checked onchange="${v}=this.checked;upd()">${n}`;
   catsDiv.appendChild(lab);
 });
-let SHOW_JAM=true, SHOW_STRIKES=true;
+let SHOW_JAM=true, SHOW_STRIKES=true, SHOW_SRC=true;
+let LIWA=null;          // грузится из liwa_map.json
+let pulse=0;
 const JAM_MIN=20;  // below 20% = background, not shown
 let BASEMAP='dark';   // 'osm' | 'dark'
 const TILES={
@@ -152,6 +161,13 @@ const deckgl=new deck.DeckGL({
     if(object.n) return {html:`<b>${object.n}</b><br>${object.type||''} ${object.date||''}`};
     if(object.h){ const nk=natOf(object.h); const nn=(NAT.find(x=>x.k===nk)||{}).n||'?';
       return {html:`<b>${object.h}</b> ${object.cs||''}<br>${object.t||'—'} ${object.d||''}<br>${CAT[object.c].n} · ${nn}`}; }
+    if(object.err_km!==undefined) return {html:
+      `<b>GPS jammer — Liwa desert, UAE</b><br>`+
+      `22.889N / 54.139E &plusmn;${object.err_km} km<br>`+
+      `Stationary, ground-based · active all 31 days of March<br>`+
+      `<br><b>This day:</b> suppression radius ${object.r}${object.r_raw>object.hz?' km (clipped at radio horizon '+object.hz+' km; raw '+object.r_raw+')':' km'}<br>`+
+      `${object.n_bad} of ${object.n_ac} aircraft degraded<br>`+
+      `<span style="color:#888">Located from 14,214 aircraft, 30 days</span>`};
     if(object.pct!==undefined) return {html:`GPS interference: <b>${object.pct}%</b>`};
     return null;
   }
@@ -168,6 +184,8 @@ async function gz(url){
 }
 
 async function boot(){
+  try{ LIWA=await gz('liwa_map.json'); log('jammer source: Liwa, '+Object.keys(LIWA.days).length+' days'); }
+  catch(e){ log('liwa_map.json missing'); LIWA=null; }
   try{ strikes=await gz('strikes.json'); log('strikes/bases: '+strikes.length); }
   catch(e){ log('strikes.json missing — skipped'); strikes=[]; }
   try{
@@ -244,6 +262,40 @@ function upd(){
       capRounded:true, jointRounded:true, pickable:true, fadeTrail:true}));
   }
 
+  if(SHOW_SRC && LIWA && LIWA.days[DAYS[cur]]){
+    const dd=LIWA.days[DAYS[cur]];
+    const R=dd.r*1000;
+    const P={lat:LIWA.lat, lon:LIWA.lon, err_km:LIWA.err_km, r:dd.r, r_raw:dd.r_raw,
+             n_bad:dd.n_bad, n_ac:dd.n_ac, hz:LIWA.horizon_km};
+
+    const rings=[0,0.34,0.67].map(ph=>{const t=(pulse+ph)%1; return {r:R*t, a:Math.round(170*(1-t)*(1-t))};});
+    ls.push(new deck.ScatterplotLayer({id:'liwa-pulse',data:rings,
+      getPosition:()=>[LIWA.lon,LIWA.lat], getRadius:d=>d.r, radiusUnits:'meters',
+      filled:false, stroked:true, getLineColor:d=>[255,50,50,d.a], lineWidthMinPixels:1.5,
+      updateTriggers:{getRadius:[pulse,dd.r], getLineColor:pulse}}));
+
+    ls.push(new deck.ScatterplotLayer({id:'liwa-zone',data:[P],
+      getPosition:d=>[d.lon,d.lat], getRadius:R, radiusUnits:'meters',
+      filled:true, stroked:true, getFillColor:[255,30,30,14],
+      getLineColor:[255,70,70,80], lineWidthMinPixels:1,
+      updateTriggers:{getRadius:dd.r}}));
+
+    ls.push(new deck.ScatterplotLayer({id:'liwa-err',data:[P],
+      getPosition:d=>[d.lon,d.lat], getRadius:LIWA.err_km*1000, radiusUnits:'meters',
+      filled:false, stroked:true, getLineColor:[255,255,255,110], lineWidthMinPixels:1}));
+
+    ls.push(new deck.ScatterplotLayer({id:'liwa-dot',data:[P],
+      getPosition:d=>[d.lon,d.lat], getRadius:5, radiusUnits:'pixels',
+      getFillColor:[255,255,255,240], getLineColor:[190,0,0,255],
+      stroked:true, lineWidthMinPixels:2, pickable:true}));
+
+    ls.push(new deck.TextLayer({id:'liwa-label',data:[P],
+      getPosition:d=>[d.lon,d.lat], getText:d=>'GPS jammer · Liwa · R '+d.r+' km',
+      getSize:12, getColor:[255,200,200,235], getPixelOffset:[0,-16],
+      fontFamily:'sans-serif', outlineWidth:2, outlineColor:[0,0,0,255],
+      updateTriggers:{getText:dd.r}}));
+  }
+
   if(SHOW_STRIKES&&strikes&&strikes.length){
     const vis=strikes.filter(s=>s.type==='base'||!s.date||s.date<=DAYS[cur]);
     const ICONS={
@@ -293,6 +345,8 @@ function tick(){
 function anim(now){
   requestAnimationFrame(anim);          // schedule next frame first
   try{
+    const np=(now/3600)%1;
+    if(SHOW_SRC && Math.abs(np-pulse)>0.004){ pulse=np; if(!playing) upd(); }
     if(playing){
       const dt=(now-last)/1000;
       T+=dt*speed;
