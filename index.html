@@ -68,6 +68,7 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
     <span>★ <span style="color:#ff1e1e">US/Israeli strikes on Iran</span></span>
     <span>★ <span style="color:#ff9500">Iranian retaliation</span></span>
     <span>▣ <span style="color:#fff">air bases</span></span>
+    <span style="margin-left:10px;color:#4da6ff">click ★ for news source</span>
     <span style="margin-left:14px;color:#666">|</span>
     <span>Basemap:</span>
     <select onchange="setBasemap(this.value)" style="font-size:11px">
@@ -161,7 +162,16 @@ const deckgl=new deck.DeckGL({
   controller:true,
   getTooltip:({object})=>{
     if(!object)return null;
-    if(object.n) return {html:`<b>${object.n}</b><br>${object.type||''} ${object.date||''}`};
+    if(object.n){
+      let h=`<b>${object.n}</b>`;
+      if(object.loc) h+=`<br><span style="color:#bbb">${object.loc}</span>`;
+      if(object.lat!==undefined&&object.type!=='base')
+        h+=`<br>${object.lat.toFixed(2)}N / ${object.lon.toFixed(2)}E`;
+      if(object.date) h+=`<br><span style="color:#ff9500">${object.date}</span>`;
+      if(object.desc) h+=`<br><span style="font-size:11px">${object.desc}</span>`;
+      if(object.url) h+=`<br><span style="color:#4da6ff;font-size:11px">🔗 click marker for source</span>`;
+      return {html:h};
+    }
     if(object.h){ const nk=natOf(object.h); const nn=(NAT.find(x=>x.k===nk)||{}).n||'?';
       return {html:`<b>${object.h}</b> ${object.cs||''}<br>${object.t||'—'} ${object.d||''}<br>${CAT[object.c].n} · ${nn}`}; }
     if(object.err_km!==undefined) return {html:
@@ -308,7 +318,15 @@ function upd(){
   }
 
   if(SHOW_STRIKES&&strikes&&strikes.length){
-    const vis=strikes.filter(s=>s.type==='base'||!s.date||s.date<=DAYS[cur]);
+    const curDay=DAYS[cur];
+    const vis=strikes.filter(s=>{
+      if(s.type==='base') return true;      // базы всегда видны
+      if(!s.date) return true;
+      if(s.date>curDay) return false;        // ещё не случилось
+      // держится 3 дня от даты события, потом гаснет
+      const di=DAYS.indexOf(s.date), ci=cur;
+      return di>=0 && (ci-di)<=2;
+    });
     const ICONS={
       strike:'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(
         `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><polygon points="24,2 29,17 45,17 32,27 37,43 24,33 11,43 16,27 3,17 19,17" fill="#ff1e1e" stroke="#000" stroke-width="1.5"/></svg>`),
@@ -321,8 +339,9 @@ function upd(){
       getPosition:d=>[d.lon,d.lat],
       getIcon:d=>({url:ICONS[d.type]||ICONS.base, width:48, height:48, anchorY:24}),
       getSize:d=>d.type==='strike'?20:d.type==='retaliation'?17:13,
-      sizeUnits:'pixels', pickable:true}));
-    ls.push(new deck.TextLayer({id:'strike-labels',data:vis,
+      sizeUnits:'pixels', pickable:true,
+      onClick:({object})=>{ if(object&&object.url) window.open(object.url,'_blank'); }}));
+    ls.push(new deck.TextLayer({id:'strike-labels',data:vis.filter(d=>d.type!=='base'),
       getPosition:d=>[d.lon,d.lat], getText:d=>d.n.split('—')[0].trim(),
       getSize:11, getColor:[255,255,255,200], getPixelOffset:[0,-14],
       fontFamily:'sans-serif', outlineWidth:2, outlineColor:[0,0,0,255],

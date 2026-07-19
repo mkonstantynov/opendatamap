@@ -1,39 +1,270 @@
 [
-  {"n":"Тегеран — комплекс Хаменеи, Минобороны, Минразведки, МАГАТЭ Ирана","lat":35.69,"lon":51.39,"type":"strike","date":"2026-02-28"},
-  {"n":"Парчин — военная база, испытания ВВ","lat":35.52,"lon":51.77,"type":"strike","date":"2026-02-28"},
-  {"n":"Натанз — обогащение урана","lat":33.72,"lon":51.73,"type":"strike","date":"2026-02-28"},
-  {"n":"Фордо — подземный завод обогащения","lat":34.88,"lon":50.99,"type":"strike","date":"2026-02-28"},
-  {"n":"Исфахан — ядерный центр, металлургия","lat":32.65,"lon":51.67,"type":"strike","date":"2026-02-28"},
-  {"n":"Кум","lat":34.64,"lon":50.88,"type":"strike","date":"2026-02-28"},
-  {"n":"Кередж","lat":35.83,"lon":50.99,"type":"strike","date":"2026-02-28"},
-  {"n":"Керманшах","lat":34.31,"lon":47.07,"type":"strike","date":"2026-02-28"},
-  {"n":"Тебриз","lat":38.08,"lon":46.29,"type":"strike","date":"2026-02-28"},
-  {"n":"Лорестан (Хорремабад)","lat":33.49,"lon":48.36,"type":"strike","date":"2026-02-28"},
-  {"n":"Тегеран — штаб SNSC, здания","lat":35.72,"lon":51.42,"type":"strike","date":"2026-03-03"},
-  {"n":"Бендер-Аббас — ВМБ, флот уничтожен у причала","lat":27.18,"lon":56.28,"type":"strike","date":"2026-03-05"},
-  {"n":"Бушер — склад БК","lat":28.83,"lon":50.89,"type":"strike","date":"2026-03-05"},
-  {"n":"Джебель-Али (Дубай) — удар","lat":25.01,"lon":55.06,"type":"strike","date":"2026-03-01"},
-
-  {"n":"Аль-Удейд (Катар) — база CENTCOM, ответный удар Ирана","lat":25.12,"lon":51.32,"type":"retaliation","date":"2026-02-28"},
-  {"n":"Аль-Дафра (ОАЭ) — авиабаза США, ответный удар","lat":24.25,"lon":54.55,"type":"retaliation","date":"2026-02-28"},
-  {"n":"Али Аль-Салем (Кувейт) — авиабаза, ответный удар","lat":29.35,"lon":47.52,"type":"retaliation","date":"2026-02-28"},
-  {"n":"Иса / NSA Бахрейн — база 5-го флота, ответный удар","lat":26.27,"lon":50.61,"type":"retaliation","date":"2026-02-28"},
-  {"n":"Айн аль-Асад (Ирак) — ответный удар","lat":33.80,"lon":42.44,"type":"retaliation","date":"2026-02-28"},
-  {"n":"Тель-Авив — ракетный удар Ирана","lat":32.08,"lon":34.78,"type":"retaliation","date":"2026-02-28"},
-  {"n":"USS Abraham Lincoln — заявлен удар КСИР","lat":24.50,"lon":58.50,"type":"retaliation","date":"2026-03-01"},
-  {"n":"Хайфа — ракеты Хезболлы","lat":32.79,"lon":34.99,"type":"retaliation","date":"2026-03-02"},
-  {"n":"Рас-Танура — НПЗ, удар Ирана","lat":26.64,"lon":50.16,"type":"retaliation","date":"2026-03-04"},
-  {"n":"Prince Sultan (Саудовская Аравия) — повреждены KC-135","lat":24.06,"lon":47.58,"type":"retaliation","date":"2026-03-14"},
-
-  {"n":"RAF Акротири (Кипр) — база вылетов","lat":34.59,"lon":32.99,"type":"base"},
-  {"n":"Аль-Удейд (Катар) — штаб CENTCOM","lat":25.12,"lon":51.32,"type":"base"},
-  {"n":"Диего-Гарсия — база B-2/B-52","lat":-7.31,"lon":72.41,"type":"base"},
-  {"n":"Овда (Израиль) — принимала F-22","lat":29.94,"lon":34.94,"type":"base"},
-  {"n":"Бен-Гурион (Израиль) — принимал танкеры","lat":32.01,"lon":34.89,"type":"base"},
-  {"n":"Аль-Дафра (ОАЭ)","lat":24.25,"lon":54.55,"type":"base"},
-  {"n":"Иса (Бахрейн) — 5-й флот США","lat":26.27,"lon":50.61,"type":"base"},
-  {"n":"Инджирлик (Турция)","lat":37.00,"lon":35.43,"type":"base"},
-  {"n":"Мурон (Испания) / Рота","lat":36.62,"lon":-6.35,"type":"base"},
-  {"n":"Милденхолл (Британия) — узел танкеров KC-135","lat":52.36,"lon":0.49,"type":"base"},
-  {"n":"Рамштайн (Германия)","lat":49.44,"lon":7.60,"type":"base"}
+ {
+  "n": "Al Udeid AB",
+  "type": "base",
+  "lat": 25.12,
+  "lon": 51.32,
+  "loc": "Qatar",
+  "desc": "Главный хаб CENTCOM в Персидском заливе"
+ },
+ {
+  "n": "Al Dhafra AB",
+  "type": "base",
+  "lat": 24.25,
+  "lon": 54.55,
+  "loc": "UAE",
+  "desc": "Танкеры, разведка, истребители"
+ },
+ {
+  "n": "Ali Al Salem AB",
+  "type": "base",
+  "lat": 29.35,
+  "lon": 47.52,
+  "loc": "Kuwait",
+  "desc": "Транспортный узел"
+ },
+ {
+  "n": "Prince Sultan AB",
+  "type": "base",
+  "lat": 24.06,
+  "lon": 47.58,
+  "loc": "Saudi Arabia",
+  "desc": "Истребители, ПВО"
+ },
+ {
+  "n": "Isa AB",
+  "type": "base",
+  "lat": 26.27,
+  "lon": 50.59,
+  "loc": "Bahrain",
+  "desc": "5-й флот США рядом"
+ },
+ {
+  "n": "Muwaffaq Salti AB",
+  "type": "base",
+  "lat": 31.83,
+  "lon": 36.78,
+  "loc": "Jordan",
+  "desc": "Истребители"
+ },
+ {
+  "n": "Masirah AB",
+  "type": "base",
+  "lat": 20.68,
+  "lon": 58.89,
+  "loc": "Oman",
+  "desc": "Разведка, дозаправка"
+ },
+ {
+  "n": "Nevatim AB",
+  "type": "base",
+  "lat": 31.21,
+  "lon": 35.01,
+  "loc": "Israel",
+  "desc": "F-35, транспорт"
+ },
+ {
+  "n": "Ramstein AB",
+  "type": "base",
+  "lat": 49.44,
+  "lon": 7.6,
+  "loc": "Germany",
+  "desc": "Главный хаб AMC в Европе — ядро моста на театр"
+ },
+ {
+  "n": "Spangdahlem AB",
+  "type": "base",
+  "lat": 49.97,
+  "lon": 6.69,
+  "loc": "Germany",
+  "desc": "Истребители, транзит"
+ },
+ {
+  "n": "Aviano AB",
+  "type": "base",
+  "lat": 46.03,
+  "lon": 12.6,
+  "loc": "Italy",
+  "desc": "Хаб, вырос после 28 фев"
+ },
+ {
+  "n": "Sigonella NAS",
+  "type": "base",
+  "lat": 37.4,
+  "lon": 14.92,
+  "loc": "Sicily",
+  "desc": "Разведка, P-8, дозаправка"
+ },
+ {
+  "n": "Incirlik AB",
+  "type": "base",
+  "lat": 36.99,
+  "lon": 35.42,
+  "loc": "Turkey",
+  "desc": "Восточный хаб (в анализе — неактивен)"
+ },
+ {
+  "n": "Souda Bay",
+  "type": "base",
+  "lat": 35.53,
+  "lon": 24.15,
+  "loc": "Crete",
+  "desc": "Восточное Средиземноморье"
+ },
+ {
+  "n": "RAF Akrotiri",
+  "type": "base",
+  "lat": 34.59,
+  "lon": 32.99,
+  "loc": "Cyprus",
+  "desc": "Британская база, ближе к театру"
+ },
+ {
+  "n": "RAF Mildenhall",
+  "type": "base",
+  "lat": 52.36,
+  "lon": 0.49,
+  "loc": "UK",
+  "desc": "Танкеры и разведка — ушла в EMCON 28 фев"
+ },
+ {
+  "n": "RAF Lakenheath",
+  "type": "base",
+  "lat": 52.41,
+  "lon": 0.56,
+  "loc": "UK",
+  "desc": "F-15/F-35"
+ },
+ {
+  "n": "RAF Fairford",
+  "type": "base",
+  "lat": 51.68,
+  "lon": -1.79,
+  "loc": "UK",
+  "desc": "Стратегические бомбардировщики"
+ },
+ {
+  "n": "Brize Norton",
+  "type": "base",
+  "lat": 51.75,
+  "lon": -1.58,
+  "loc": "UK",
+  "desc": "Британский транспортный хаб"
+ },
+ {
+  "n": "Moron AB",
+  "type": "base",
+  "lat": 37.17,
+  "lon": -5.62,
+  "loc": "Spain",
+  "desc": "Маршрут на Бл.Восток"
+ },
+ {
+  "n": "Rota NS",
+  "type": "base",
+  "lat": 36.65,
+  "lon": -6.35,
+  "loc": "Spain",
+  "desc": "Дозаправка на маршруте"
+ },
+ {
+  "n": "Dover AFB",
+  "type": "base",
+  "lat": 39.13,
+  "lon": -75.47,
+  "loc": "USA",
+  "desc": "Главный груз-хаб восточного побережья"
+ },
+ {
+  "n": "Travis AFB",
+  "type": "base",
+  "lat": 38.26,
+  "lon": -121.93,
+  "loc": "USA",
+  "desc": "Западное побережье, C-5/C-17"
+ },
+ {
+  "n": "Charleston AFB",
+  "type": "base",
+  "lat": 32.9,
+  "lon": -80.04,
+  "loc": "USA",
+  "desc": "C-17"
+ },
+ {
+  "n": "McGuire AFB",
+  "type": "base",
+  "lat": 40.02,
+  "lon": -74.59,
+  "loc": "USA",
+  "desc": "Транспорт, дозаправка"
+ },
+ {
+  "n": "Diego Garcia",
+  "type": "base",
+  "lat": -7.31,
+  "lon": 72.41,
+  "loc": "BIOT",
+  "desc": "Стратегические бомбардировщики, дальний тыл"
+ },
+ {
+  "n": "US/Israeli strikes on Iran — war begins",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 35.7,
+  "lon": 51.42,
+  "loc": "Tehran & 28 regions",
+  "desc": "~900 strikes in 12h on missile, air-defense, leadership targets. Supreme Leader Khamenei killed.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Strikes on Tehran fuel & energy sites",
+  "type": "strike",
+  "date": "2026-03-07",
+  "lat": 35.72,
+  "lon": 51.35,
+  "loc": "Tehran & Karaj",
+  "desc": "Israel struck fuel storage and energy complexes in the capital.",
+  "url": "https://en.wikipedia.org/wiki/2026_South_Pars_field_attack"
+ },
+ {
+  "n": "Ali Larijani assassinated",
+  "type": "strike",
+  "date": "2026-03-17",
+  "lat": 35.76,
+  "lon": 51.41,
+  "loc": "Tehran",
+  "desc": "Iran security chief Ali Larijani and Basij commander Soleimani killed in Israeli strike.",
+  "url": "https://foreignpolicy.com/2026/03/18/iran-south-pars-gas-field-oil-energy-strikes-qatar-israel-khatib-larijani/"
+ },
+ {
+  "n": "South Pars gas field strike",
+  "type": "strike",
+  "date": "2026-03-18",
+  "lat": 27.6,
+  "lon": 52.6,
+  "loc": "South Pars / Asaluyeh",
+  "desc": "Israeli strike on world's largest gas field. 12% of Iran's gas output hit; global energy prices spiked.",
+  "url": "https://en.wikipedia.org/wiki/2026_South_Pars_field_attack"
+ },
+ {
+  "n": "Iranian retaliation on Gulf energy sites",
+  "type": "retaliation",
+  "date": "2026-03-18",
+  "lat": 25.29,
+  "lon": 51.53,
+  "loc": "Qatar / UAE / Kuwait",
+  "desc": "Iran struck energy facilities across Gulf states after South Pars attack.",
+  "url": "https://www.cbsnews.com/live-updates/iran-war-israel-strike-south-pars-gas-field-trump-threat-oil-gas-prices/"
+ },
+ {
+  "n": "Iranian retaliation — US bases",
+  "type": "retaliation",
+  "date": "2026-02-28",
+  "lat": 29.35,
+  "lon": 47.97,
+  "loc": "Iraq/Jordan/Bahrain/Qatar/Kuwait/UAE",
+  "desc": "Iran hit six bases hosting US troops with missiles and drones.",
+  "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-10521/"
+ }
 ]
