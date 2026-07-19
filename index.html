@@ -344,9 +344,8 @@ function upd(){
       getPosition:d=>[d.lon,d.lat],
       getIcon:d=>({url:ICONS[d.type]||ICONS.base, width:48, height:48, anchorY:24}),
       getSize:d=>isVisible(d)?(d.type==='strike'?20:d.type==='retaliation'?17:d.type==='energy'?18:13):0,
-      getColor:d=>isVisible(d)?[255,255,255,255]:[0,0,0,0],
       sizeUnits:'pixels', pickable:true,
-      updateTriggers:{getSize:cur, getColor:cur},
+      updateTriggers:{getSize:cur},
       onClick:({object})=>{ if(object&&object.url) window.open(object.url,'_blank'); }}));
     ls.push(new deck.TextLayer({id:'strike-labels',data:vis.filter(d=>d.type!=='base'),
       getPosition:d=>[d.lon,d.lat], getText:d=>d.n.split('—')[0].trim(),
