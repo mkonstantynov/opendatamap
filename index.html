@@ -319,14 +319,16 @@ function upd(){
 
   if(SHOW_STRIKES&&strikes&&strikes.length){
     const curDay=DAYS[cur];
-    const vis=strikes.filter(s=>{
-      if(s.type==='base') return true;      // базы всегда видны
+    // видимость каждого объекта: база — всегда; удар — 3 дня от даты
+    function isVisible(s){
+      if(s.type==='base') return true;
       if(!s.date) return true;
-      if(s.date>curDay) return false;        // ещё не случилось
-      // держится 3 дня от даты события, потом гаснет
-      const di=DAYS.indexOf(s.date), ci=cur;
-      return di>=0 && (ci-di)<=2;
-    });
+      if(s.date>curDay) return false;
+      const di=DAYS.indexOf(s.date);
+      return di>=0 && (cur-di)<=2;   // держится день удара + 2 дня = 3 дня
+    }
+    // даём слою ВСЕ объекты, но невидимые прячем через alpha=0 (надёжнее смены data)
+    const vis=strikes;
     const ICONS={
       strike:'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(
         `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><polygon points="24,2 29,17 45,17 32,27 37,43 24,33 11,43 16,27 3,17 19,17" fill="#ff1e1e" stroke="#000" stroke-width="1.5"/></svg>`),
@@ -338,14 +340,16 @@ function upd(){
     ls.push(new deck.IconLayer({id:'strikes',data:vis,
       getPosition:d=>[d.lon,d.lat],
       getIcon:d=>({url:ICONS[d.type]||ICONS.base, width:48, height:48, anchorY:24}),
-      getSize:d=>d.type==='strike'?20:d.type==='retaliation'?17:13,
+      getSize:d=>isVisible(d)?(d.type==='strike'?20:d.type==='retaliation'?17:13):0,
+      getColor:d=>isVisible(d)?[255,255,255,255]:[0,0,0,0],
       sizeUnits:'pixels', pickable:true,
+      updateTriggers:{getSize:cur, getColor:cur},
       onClick:({object})=>{ if(object&&object.url) window.open(object.url,'_blank'); }}));
     ls.push(new deck.TextLayer({id:'strike-labels',data:vis.filter(d=>d.type!=='base'),
       getPosition:d=>[d.lon,d.lat], getText:d=>d.n.split('—')[0].trim(),
-      getSize:11, getColor:[255,255,255,200], getPixelOffset:[0,-14],
+      getSize:11, getColor:d=>isVisible(d)?[255,255,255,200]:[0,0,0,0], getPixelOffset:[0,-14],
       fontFamily:'sans-serif', outlineWidth:2, outlineColor:[0,0,0,255],
-      visible:true}));
+      updateTriggers:{getColor:cur}}));
   }
 
   deckgl.setProps({layers:ls});
