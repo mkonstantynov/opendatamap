@@ -67,6 +67,7 @@ label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:3px}
   <div class="row" style="font-size:11px;color:#aaa">
     <span>★ <span style="color:#ff1e1e">US/Israeli strikes on Iran</span></span>
     <span>★ <span style="color:#ff9500">Iranian retaliation</span></span>
+    <span>⬤ <span style="color:#ffd000">tanker / energy strikes</span></span>
     <span>▣ <span style="color:#fff">air bases</span></span>
     <span style="margin-left:10px;color:#4da6ff">click ★ for news source</span>
     <span style="margin-left:14px;color:#666">|</span>
@@ -335,12 +336,14 @@ function upd(){
       retaliation:'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(
         `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><polygon points="24,2 29,17 45,17 32,27 37,43 24,33 11,43 16,27 3,17 19,17" fill="#ff9500" stroke="#000" stroke-width="1.5"/></svg>`),
       base:'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(
-        `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect x="8" y="8" width="32" height="32" fill="none" stroke="#fff" stroke-width="4"/><circle cx="24" cy="24" r="5" fill="#fff"/></svg>`)
+        `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect x="8" y="8" width="32" height="32" fill="none" stroke="#fff" stroke-width="4"/><circle cx="24" cy="24" r="5" fill="#fff"/></svg>`),
+      energy:'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(
+        `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><circle cx="24" cy="24" r="16" fill="#ffd000" stroke="#000" stroke-width="2"/><path d="M24 12 C20 20, 30 22, 24 36 C18 24, 28 22, 24 12 Z" fill="#e8600a" stroke="#000" stroke-width="1"/></svg>`)
     };
     ls.push(new deck.IconLayer({id:'strikes',data:vis,
       getPosition:d=>[d.lon,d.lat],
       getIcon:d=>({url:ICONS[d.type]||ICONS.base, width:48, height:48, anchorY:24}),
-      getSize:d=>isVisible(d)?(d.type==='strike'?20:d.type==='retaliation'?17:13):0,
+      getSize:d=>isVisible(d)?(d.type==='strike'?20:d.type==='retaliation'?17:d.type==='energy'?18:13):0,
       getColor:d=>isVisible(d)?[255,255,255,255]:[0,0,0,0],
       sizeUnits:'pixels', pickable:true,
       updateTriggers:{getSize:cur, getColor:cur},

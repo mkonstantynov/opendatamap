@@ -208,6 +208,56 @@
   "desc": "Стратегические бомбардировщики, дальний тыл"
  },
  {
+  "n": "Иран объявил Ормуз закрытым",
+  "type": "energy",
+  "date": "2026-03-02",
+  "lat": 26.57,
+  "lon": 56.25,
+  "loc": "Strait of Hormuz",
+  "desc": "КСИР: 'пролив закрыт, любое судно подожжём'. 20%+ мировой нефти проходит здесь. Начало морской фазы.",
+  "url": "https://www.congress.gov/crs-product/R45281"
+ },
+ {
+  "n": "QatarEnergy — форс-мажор по LNG",
+  "type": "energy",
+  "date": "2026-03-03",
+  "lat": 25.9,
+  "lon": 51.55,
+  "loc": "Qatar / Ras Laffan",
+  "desc": "Танкеры LNG не могут выйти из Залива. Форс-мажор по контрактам, скачок цен на газ.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war_fuel_crisis"
+ },
+ {
+  "n": "Иран минирует Ормуз, атакует танкеры",
+  "type": "energy",
+  "date": "2026-03-11",
+  "lat": 26.57,
+  "lon": 56.25,
+  "loc": "Strait of Hormuz",
+  "desc": "Дроны по коммерческим судам. Все суда США/Израиля/союзников — 'легитимная цель'. Нефть >$100.",
+  "url": "https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-oil-ship-attacks-hormuz-trump-israel-lebanon-rcna263101"
+ },
+ {
+  "n": "Иран бьёт по танкерам в Ормузе",
+  "type": "energy",
+  "date": "2026-03-13",
+  "lat": 26.6,
+  "lon": 56.4,
+  "loc": "Strait of Hormuz",
+  "desc": "Новый лидер Мохтаба Хаменеи: пролив остаётся закрытым. Нефть снова выше $100.",
+  "url": "https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-oil-ship-attacks-hormuz-trump-israel-lebanon-rcna263101"
+ },
+ {
+  "n": "Иран бьёт по энергетике Залива",
+  "type": "energy",
+  "date": "2026-03-18",
+  "lat": 25.29,
+  "lon": 51.53,
+  "loc": "Qatar / UAE / Kuwait",
+  "desc": "Ответ на удар по Южному Парсу — Иран бьёт по энергообъектам соседей. Резкий рост цен.",
+  "url": "https://www.cbsnews.com/live-updates/iran-war-israel-strike-south-pars-gas-field-trump-threat-oil-gas-prices/"
+ },
+ {
   "n": "US/Israeli strikes on Iran — war begins",
   "type": "strike",
   "date": "2026-02-28",
