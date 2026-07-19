@@ -208,6 +208,356 @@
   "desc": "Стратегические бомбардировщики, дальний тыл"
  },
  {
+  "n": "Tehran — leadership & ministries",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 35.7,
+  "lon": 51.42,
+  "loc": "Tehran",
+  "desc": "Opening strikes: Supreme Leader compound, defense & intelligence ministries, C2 nodes. War begins.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Karaj — nuclear/military",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 35.84,
+  "lon": 50.99,
+  "loc": "Karaj",
+  "desc": "Facilities near Tehran struck on opening night.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Qom / Fordow area",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 34.88,
+  "lon": 50.99,
+  "loc": "Qom / Fordow",
+  "desc": "Nuclear-related sites near Qom.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Natanz / Isfahan",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 33.72,
+  "lon": 51.91,
+  "loc": "Natanz",
+  "desc": "Natanz enrichment & Isfahan military complex.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Tabriz — IRGC Aerospace",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 38.08,
+  "lon": 46.29,
+  "loc": "Tabriz",
+  "desc": "IRGC aerospace sites, NW Iran.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Kermanshah — IRGC",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 34.31,
+  "lon": 47.07,
+  "loc": "Kermanshah",
+  "desc": "IRGC / military, western Iran.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Khorramabad — missiles",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 33.49,
+  "lon": 48.36,
+  "loc": "Khorramabad",
+  "desc": "Ballistic-missile infrastructure.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Dezful — IRGC Aerospace",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 32.38,
+  "lon": 48.4,
+  "loc": "Dezful",
+  "desc": "IRGC aerospace, SW Iran.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Bushehr — port / depot",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 28.83,
+  "lon": 50.86,
+  "loc": "Bushehr",
+  "desc": "Port and ammunition depot struck opening night.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Minab / Bandar Abbas — naval",
+  "type": "strike",
+  "date": "2026-02-28",
+  "lat": 27.15,
+  "lon": 57.08,
+  "loc": "Minab, near Bandar Abbas",
+  "desc": "IRGC naval base; heavy civilian toll reported nearby.",
+  "url": "https://www.britannica.com/event/2026-Iran-war"
+ },
+ {
+  "n": "Tehran — Thar-Allah HQ & IRIB",
+  "type": "strike",
+  "date": "2026-03-01",
+  "lat": 35.7,
+  "lon": 51.41,
+  "loc": "Tehran",
+  "desc": "Internal-security HQ and state broadcaster; missile sites.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Natanz nuclear facility",
+  "type": "strike",
+  "date": "2026-03-02",
+  "lat": 33.72,
+  "lon": 51.91,
+  "loc": "Natanz / Isfahan",
+  "desc": "Entrance buildings damaged; no radiological release reported.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Tehran & Sanandaj — command centers",
+  "type": "strike",
+  "date": "2026-03-02",
+  "lat": 35.7,
+  "lon": 51.42,
+  "loc": "Tehran",
+  "desc": "Command centers, IRIB HQ, ministry targets.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Isfahan / Kermanshah / Shiraz",
+  "type": "strike",
+  "date": "2026-03-03",
+  "lat": 32.65,
+  "lon": 51.67,
+  "loc": "Isfahan",
+  "desc": "Wide strikes; Natanz again; Kermanshah military HQ.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Tehran — Azadi Sq. military complex",
+  "type": "strike",
+  "date": "2026-03-04",
+  "lat": 35.7,
+  "lon": 51.34,
+  "loc": "Tehran",
+  "desc": "Military complex, Basij HQ, logistics directorate.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Bandar Abbas port — naval",
+  "type": "strike",
+  "date": "2026-03-05",
+  "lat": 27.19,
+  "lon": 56.27,
+  "loc": "Bandar Abbas",
+  "desc": "Port struck; corvette sunk in harbour.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Bushehr ammunition depot",
+  "type": "strike",
+  "date": "2026-03-05",
+  "lat": 28.83,
+  "lon": 50.86,
+  "loc": "Bushehr",
+  "desc": "Ordnance depot; Tabriz IRGC brigade HQ same day.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Tehran — Khamenei compound",
+  "type": "strike",
+  "date": "2026-03-06",
+  "lat": 35.81,
+  "lon": 51.43,
+  "loc": "Tehran",
+  "desc": "Leadership compound targeted; Mehrabad aircraft destroyed.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Iran oil facilities — first hit",
+  "type": "strike",
+  "date": "2026-03-07",
+  "lat": 35.72,
+  "lon": 51.35,
+  "loc": "Tehran & Karaj",
+  "desc": "Israel strikes Iranian oil/fuel storage for the first time; 4 killed, large smoke plumes.",
+  "url": "https://en.wikipedia.org/wiki/2026_South_Pars_field_attack"
+ },
+ {
+  "n": "Isfahan — IRGC aerospace HQ",
+  "type": "strike",
+  "date": "2026-03-07",
+  "lat": 32.65,
+  "lon": 51.67,
+  "loc": "Isfahan",
+  "desc": "IRGC aerospace HQ; ammunition shelters destroyed.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Mehrabad Airport — Quds aircraft",
+  "type": "strike",
+  "date": "2026-03-06",
+  "lat": 35.69,
+  "lon": 51.31,
+  "loc": "Tehran / Mehrabad",
+  "desc": "16 Quds Force aircraft destroyed on the ground.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Qom — IRGC intelligence HQ",
+  "type": "strike",
+  "date": "2026-03-09",
+  "lat": 34.64,
+  "lon": 50.88,
+  "loc": "Qom",
+  "desc": "IRGC intel HQ; Kerman airport fuel depot same day.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Kharg Island — military",
+  "type": "strike",
+  "date": "2026-03-13",
+  "lat": 29.23,
+  "lon": 50.32,
+  "loc": "Kharg Island",
+  "desc": "US strike on Kharg military targets; oil export infrastructure deliberately spared.",
+  "url": "https://en.wikipedia.org/wiki/2026_South_Pars_field_attack"
+ },
+ {
+  "n": "Ali Larijani assassinated",
+  "type": "strike",
+  "date": "2026-03-17",
+  "lat": 35.76,
+  "lon": 51.41,
+  "loc": "Tehran",
+  "desc": "Iran security chief Ali Larijani & Basij commander Soleimani killed in Israeli strike.",
+  "url": "https://en.wikipedia.org/wiki/Assassination_of_Ali_Larijani"
+ },
+ {
+  "n": "South Pars gas field",
+  "type": "strike",
+  "date": "2026-03-18",
+  "lat": 27.48,
+  "lon": 52.61,
+  "loc": "South Pars / Asaluyeh",
+  "desc": "Israeli strike on the world's largest gas field (shared Iran–Qatar). Global energy prices spiked.",
+  "url": "https://en.wikipedia.org/wiki/2026_South_Pars_field_attack"
+ },
+ {
+  "n": "Bandar Abbas — IRGC Navy command",
+  "type": "strike",
+  "date": "2026-03-26",
+  "lat": 27.19,
+  "lon": 56.27,
+  "loc": "Bandar Abbas",
+  "desc": "Naval command struck; late-March strikes on IRGC Navy.",
+  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+ },
+ {
+  "n": "Al Udeid AB — missile barrage",
+  "type": "retaliation",
+  "date": "2026-02-28",
+  "lat": 25.12,
+  "lon": 51.32,
+  "loc": "Qatar",
+  "desc": "~170 ballistic missiles across Israel & Gulf; Al Udeid hit.",
+  "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-10521/"
+ },
+ {
+  "n": "Al Dhafra AB",
+  "type": "retaliation",
+  "date": "2026-02-28",
+  "lat": 24.25,
+  "lon": 54.55,
+  "loc": "UAE",
+  "desc": "US/coalition base struck in opening retaliation.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "Ali Al Salem AB",
+  "type": "retaliation",
+  "date": "2026-02-28",
+  "lat": 29.35,
+  "lon": 47.52,
+  "loc": "Kuwait",
+  "desc": "US base struck; Kuwait airport explosions.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "US 5th Fleet HQ — Bahrain",
+  "type": "retaliation",
+  "date": "2026-02-28",
+  "lat": 26.21,
+  "lon": 50.61,
+  "loc": "Manama, Bahrain",
+  "desc": "Missile hits Fifth Fleet service center.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "Tel Aviv & Haifa",
+  "type": "retaliation",
+  "date": "2026-02-28",
+  "lat": 32.08,
+  "lon": 34.78,
+  "loc": "Israel",
+  "desc": "Ballistic missiles on Israeli cities; casualties in Tel Aviv.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "Port Shuaiba — US personnel",
+  "type": "retaliation",
+  "date": "2026-03-01",
+  "lat": 29.03,
+  "lon": 48.13,
+  "loc": "Kuwait",
+  "desc": "Port strike; 6 US servicemen reported killed.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "Prince Sultan AB",
+  "type": "retaliation",
+  "date": "2026-03-21",
+  "lat": 24.06,
+  "lon": 47.58,
+  "loc": "Saudi Arabia",
+  "desc": "Missile strike; ~29 US servicemen wounded.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "Iranian strikes on Gulf energy",
+  "type": "retaliation",
+  "date": "2026-03-18",
+  "lat": 25.29,
+  "lon": 51.53,
+  "loc": "Qatar / UAE / Kuwait",
+  "desc": "Retaliation for South Pars: Ras Laffan, Habshan gas facility, Gulf energy sites hit.",
+  "url": "https://www.cbsnews.com/live-updates/iran-war-israel-strike-south-pars-gas-field-trump-threat-oil-gas-prices/"
+ },
+ {
+  "n": "Dimona / Arad / Tel Aviv",
+  "type": "retaliation",
+  "date": "2026-03-21",
+  "lat": 31.07,
+  "lon": 35.03,
+  "loc": "Israel",
+  "desc": "Large Iranian barrage; scores injured across southern & central Israel.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
   "n": "Иран объявил Ормуз закрытым",
   "type": "energy",
   "date": "2026-03-02",
@@ -258,63 +608,103 @@
   "url": "https://www.cbsnews.com/live-updates/iran-war-israel-strike-south-pars-gas-field-trump-threat-oil-gas-prices/"
  },
  {
-  "n": "US/Israeli strikes on Iran — war begins",
-  "type": "strike",
-  "date": "2026-02-28",
-  "lat": 35.7,
-  "lon": 51.42,
-  "loc": "Tehran & 28 regions",
-  "desc": "~900 strikes in 12h on missile, air-defense, leadership targets. Supreme Leader Khamenei killed.",
-  "url": "https://en.wikipedia.org/wiki/2026_Iran_war"
+  "n": "Tankers Skylight & MKD Vyom hit",
+  "type": "energy",
+  "date": "2026-03-01",
+  "lat": 26.3,
+  "lon": 56.35,
+  "loc": "Gulf of Oman (approx)",
+  "desc": "Two tankers struck near Khasab / off Oman on opening days. Position approximate (moving vessels).",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
  },
  {
-  "n": "Strikes on Tehran fuel & energy sites",
-  "type": "strike",
-  "date": "2026-03-07",
-  "lat": 35.72,
-  "lon": 51.35,
-  "loc": "Tehran & Karaj",
-  "desc": "Israel struck fuel storage and energy complexes in the capital.",
+  "n": "Tanker Athena Nova — Hormuz",
+  "type": "energy",
+  "date": "2026-03-02",
+  "lat": 26.55,
+  "lon": 56.3,
+  "loc": "Strait of Hormuz (approx)",
+  "desc": "Honduras-flagged tanker drone-struck in the strait. Position approximate.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "Ras Tanura refinery — debris fire",
+  "type": "energy",
+  "date": "2026-03-02",
+  "lat": 26.64,
+  "lon": 50.16,
+  "loc": "Saudi Arabia",
+  "desc": "Aramco refinery; drones/intercept debris fire.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "Tanker Prima — IRGC drone",
+  "type": "energy",
+  "date": "2026-03-06",
+  "lat": 26.4,
+  "lon": 56.5,
+  "loc": "Strait of Hormuz (approx)",
+  "desc": "Malta-flagged oil tanker struck after IRGC warnings. Position approximate.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "Shaybah oil field — drones",
+  "type": "energy",
+  "date": "2026-03-08",
+  "lat": 22.51,
+  "lon": 53.97,
+  "loc": "Saudi Arabia",
+  "desc": "4 drones destroyed over Shaybah field.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "ADNOC Ruwais refinery fire",
+  "type": "energy",
+  "date": "2026-03-09",
+  "lat": 24.11,
+  "lon": 52.73,
+  "loc": "UAE",
+  "desc": "Refinery shut after drone-strike fire.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
+ },
+ {
+  "n": "Kharg Island oil export hub",
+  "type": "energy",
+  "date": "2026-03-13",
+  "lat": 29.23,
+  "lon": 50.32,
+  "loc": "Kharg Island",
+  "desc": "~90% of Iran's crude exports transit here; military targets hit nearby.",
   "url": "https://en.wikipedia.org/wiki/2026_South_Pars_field_attack"
  },
  {
-  "n": "Ali Larijani assassinated",
-  "type": "strike",
-  "date": "2026-03-17",
-  "lat": 35.76,
-  "lon": 51.41,
-  "loc": "Tehran",
-  "desc": "Iran security chief Ali Larijani and Basij commander Soleimani killed in Israeli strike.",
-  "url": "https://foreignpolicy.com/2026/03/18/iran-south-pars-gas-field-oil-energy-strikes-qatar-israel-khatib-larijani/"
- },
- {
-  "n": "South Pars gas field strike",
-  "type": "strike",
+  "n": "Tanker Safesea Vishnu",
+  "type": "energy",
   "date": "2026-03-18",
-  "lat": 27.6,
-  "lon": 52.6,
-  "loc": "South Pars / Asaluyeh",
-  "desc": "Israeli strike on world's largest gas field. 12% of Iran's gas output hit; global energy prices spiked.",
-  "url": "https://en.wikipedia.org/wiki/2026_South_Pars_field_attack"
+  "lat": 29.2,
+  "lon": 49.2,
+  "loc": "N. Persian Gulf (approx)",
+  "desc": "Tanker struck; one crew killed. Position approximate.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
  },
  {
-  "n": "Iranian retaliation on Gulf energy sites",
-  "type": "retaliation",
-  "date": "2026-03-18",
-  "lat": 25.29,
-  "lon": 51.53,
-  "loc": "Qatar / UAE / Kuwait",
-  "desc": "Iran struck energy facilities across Gulf states after South Pars attack.",
-  "url": "https://www.cbsnews.com/live-updates/iran-war-israel-strike-south-pars-gas-field-trump-threat-oil-gas-prices/"
+  "n": "SAMREF refinery — Yanbu",
+  "type": "energy",
+  "date": "2026-03-19",
+  "lat": 24.09,
+  "lon": 38.06,
+  "loc": "Yanbu, Saudi Arabia",
+  "desc": "Drone strike on Red Sea refinery.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
  },
  {
-  "n": "Iranian retaliation — US bases",
-  "type": "retaliation",
-  "date": "2026-02-28",
-  "lat": 29.35,
-  "lon": 47.97,
-  "loc": "Iraq/Jordan/Bahrain/Qatar/Kuwait/UAE",
-  "desc": "Iran hit six bases hosting US troops with missiles and drones.",
-  "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-10521/"
+  "n": "Tanker Mayuree Naree",
+  "type": "energy",
+  "date": "2026-03-26",
+  "lat": 24.0,
+  "lon": 57.6,
+  "loc": "Gulf of Oman (approx)",
+  "desc": "Thai-flagged tanker struck off Oman. Position approximate.",
+  "url": "https://en.wikipedia.org/wiki/List_of_attacks_during_the_2026_Iran_war"
  }
 ]
